@@ -27,14 +27,26 @@ public class Bracket {
     }
     
     
-    private String[] reorder(String[] teamsName) {
-        return teamsName;
+    private int[] reorder(int teamNum) {
+        int[] array = new int[teamNum];
+//    	int[] prev;
+//        int i;
+//        
+//        if (teamNum <= 2)
+//        {
+//        	array[0] = 0;
+//        	array[1] = 1;
+//        	return array
+//        }
+//        
+//        prev = reorder()
+//    	return teamsName;
         // TODO reorder teams
 //        String[] orderedTeams = new String[teamsName.length];
 //        for(int i=1; i<=teamsName.length; i++) {
 //            
 //        }
-//        return orderedTeams;
+        return array;
     }
 
     
