@@ -81,7 +81,6 @@ public class GraphGenerator {
         
         // set the properties of the grid pane
         grid.setAlignment(Pos.CENTER);
-        grid.setGridLinesVisible(false);
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
@@ -168,7 +167,6 @@ public class GraphGenerator {
 
         // show in the stage
         root.getChildren().add(grid);
-         grid.setGridLinesVisible(true);
         AnchorPane.setLeftAnchor(grid, 0.0);
         AnchorPane.setRightAnchor(grid, 0.0);
         AnchorPane.setTopAnchor(grid, 0.0);
