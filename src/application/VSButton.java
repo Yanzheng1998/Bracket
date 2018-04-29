@@ -25,6 +25,9 @@ public class VSButton {
                 try {
                     Integer scoreNum1 = Integer.valueOf(score1);
                     Integer scoreNum2 = Integer.valueOf(score2);
+                    if(scoreNum1 < 0 || scoreNum2 < 2)
+                        throw new ArithmeticException();
+                    
                     if (score1 != null && score2 != null) {
                         if (scoreNum1 > scoreNum2) {
                             teams[seriesNumber][teamNum].name.setText(name1);
@@ -49,6 +52,8 @@ public class VSButton {
                         AlertBox.display("WARNING", "Score entered is empty");
                     else
                         AlertBox.display("WARNING", "Please enter integers as team score");
+                } catch (ArithmeticException r) {
+                    AlertBox.display("WARNING", "Please enter positive integer as team score");
                 }
             }
         });
