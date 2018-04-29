@@ -80,7 +80,8 @@ public class GraphGenerator {
 
 
         // set final game button
-        HBox finalButtonBox = new HBox(10);
+        HBox finalButtonBox = new HBox();
+        finalButtonBox.setMinWidth(45);
         Button finalButton = new Button("Final");
 
         // set action
@@ -143,7 +144,7 @@ public class GraphGenerator {
 
         // show in the stage
         root.getChildren().add(grid);
-        // grid.setGridLinesVisible(true);
+         grid.setGridLinesVisible(true);
         AnchorPane.setLeftAnchor(grid, 0.0);
         AnchorPane.setRightAnchor(grid, 0.0);
         AnchorPane.setTopAnchor(grid, 0.0);
@@ -171,8 +172,11 @@ public class GraphGenerator {
                 grid.getRowConstraints().add(rc);
             }
             // set up the instruction
+            HBox instructionBox = new HBox();
             Label labelInstruction = new Label("Enter the scores and click the button!");
-            grid.add(labelInstruction, bracket.roundNum, numRows - 1);
+            instructionBox.getChildren().add(labelInstruction);
+            instructionBox.setAlignment(Pos.CENTER);
+            grid.add(instructionBox, bracket.roundNum-1, numRows - 1, 3, 1);
         }
 
         for (int i = 1; i <= teamsInSeries; i++) {
@@ -216,12 +220,12 @@ public class GraphGenerator {
             if (numOfTeam / 2 != teamsInSeries) {
                 VSButton vsButton = new VSButton(bracket, bracket.rightChallengerLists,
                                 seriesNumber, i, 1);
-                grid.add(vsButton.buttonBox, bracket.roundNum * 2 + 2 - seriesNumber + 1,
+                grid.add(vsButton.buttonBox, bracket.roundNum * 2 + 2 - seriesNumber + 1 -1,
                                 (int) ((Math.pow(2, (seriesNumber - 1)) - 1)
                                                 + (i - 1) * Math.pow(2, seriesNumber)));
             }
             grid.add(bracket.rightChallengerLists[seriesNumber][i].teamBox,
-                            bracket.roundNum * 2 + 2 - seriesNumber,
+                            bracket.roundNum * 2 + 2 - seriesNumber-1,
                             (int) ((Math.pow(2, (seriesNumber - 1)) - 1)
                                             + (i - 1) * Math.pow(2, seriesNumber)));
 
