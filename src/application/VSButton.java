@@ -1,3 +1,6 @@
+/**
+ * VSButton class contains styles and functions of general VSbuttons.
+ */
 package application;
 
 import javafx.event.ActionEvent;
@@ -6,6 +9,15 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
+/**
+* The constructor for VSbutton
+* 
+* @param bracket the bracket class containing info of all team
+* @param teams the info of right half teams or left half teams
+* @param seriesNumber the current round number
+* @param teamNum the placement number of a team in a row
+* @param region could be 0 - left half or 1 - right
+*/
 public class VSButton {
 	public Button vsButton;
 	public HBox buttonBox;
@@ -16,7 +28,14 @@ public class VSButton {
 		buttonBox = new HBox();
 		
 		// set action
-		vsButton.setOnAction(new EventHandler<ActionEvent>() {
+		vsButton.setOnAction(new EventHandler<ActionEvent>() 
+			/**
+			 * action method of button's inner class - contains the action need to complete when 
+			 * user click on general VS buttons.
+			 * The system will compare the score entered by user and handle exceptions that could 
+			 * occur. Then the input box, button and label of the winner team would appear at next
+			 * team box.
+			 */
 			@Override
 			public void handle(ActionEvent e) {
 				String name1 = teams[seriesNumber - 1][teamNum * 2 - 1].name.getText();
