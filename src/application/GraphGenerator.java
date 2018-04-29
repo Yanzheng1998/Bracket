@@ -28,7 +28,11 @@ public class GraphGenerator {
     public static int numOfTeam;
     public static Bracket bracket;
 
-    // if there is no teams int the file
+    /**
+    * if there is no teams int the file
+    * the program will pop up a label"There is no team there!"
+    * @param primaryStage - primaryStage of this program
+    */
     public static void setupNoTeam(Stage primaryStage) {
         primaryStage.setTitle("Label");
         StackPane sPane = new StackPane();
@@ -43,7 +47,12 @@ public class GraphGenerator {
     }
 
 
-    // if there is only one team in the file
+    /**
+    * if there is only one team in the file
+    * the program will pop up a label"There is no team there!"
+    * @param primaryStage - primaryStage of this program
+    * @param teamName - the name of the champion
+    */
     public static void setupOneTeam(Stage primaryStage, String teamName) {
         primaryStage.setTitle("Label");
         StackPane sPane = new StackPane();
@@ -57,7 +66,13 @@ public class GraphGenerator {
         primaryStage.show();
     }
 
-    // if there are multiple teams in the file (the number of team is greater than or equal to 2)
+    /**
+    * if there are multiple teams in the file (the number of team is greater than or equal to 2)
+    * the program will pop up a label"There is no team there!"
+    * @param primaryStage - primaryStage of this program
+    * @param teamsNamePass - the names of all teams
+    * @param bracketPass - bracket object
+    */
     public static void setupMultipleTeams(Stage primaryStage, String[] teamsNamePass,
                     Bracket bracketPass) {
         bracket = bracketPass;
