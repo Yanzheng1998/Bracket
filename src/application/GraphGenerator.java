@@ -28,7 +28,7 @@ public class GraphGenerator {
     public static int numOfTeam;
     public static Bracket bracket;
 
-
+    // if there is no teams int the file
     public static void setupNoTeam(Stage primaryStage) {
         primaryStage.setTitle("Label");
         StackPane sPane = new StackPane();
@@ -43,7 +43,7 @@ public class GraphGenerator {
     }
 
 
-
+    // if there is only one team in the file
     public static void setupOneTeam(Stage primaryStage, String teamName) {
         primaryStage.setTitle("Label");
         StackPane sPane = new StackPane();
@@ -57,13 +57,14 @@ public class GraphGenerator {
         primaryStage.show();
     }
 
-
+    // if there are multiple teams in the file (the number of team is greater than or equal to 2)
     public static void setupMultipleTeams(Stage primaryStage, String[] teamsNamePass,
                     Bracket bracketPass) {
         bracket = bracketPass;
         teamsName = teamsNamePass;
         numOfTeam = teamsName.length;
-
+        
+        // set the properties of the grid pane
         grid.setAlignment(Pos.CENTER);
         grid.setGridLinesVisible(true);
         grid.setHgap(10);
@@ -115,19 +116,13 @@ public class GraphGenerator {
                     if (scoreNum1 > scoreNum2) {
                         // name1 is the first place
                         // name2 is the second place
-                        AlertBox.displayPlacement(name1, name2, thirdPalce);
-                        if (thirdPalce != null) {
-                            // thirdPalce is the third place 
-                        }
                         // alert box
+                        AlertBox.displayPlacement(name1, name2, thirdPalce);
                     } else {
                         // name2 is first place
                         // name1 is second place
-                        AlertBox.displayPlacement(name2, name1, thirdPalce);
-                        if (thirdPalce != null) {
-                            // thirdPalce is the third place 
-                        }
                         // alert box
+                        AlertBox.displayPlacement(name2, name1, thirdPalce);
                     }
                 } catch (NumberFormatException r) {
                     if (score1.isEmpty() || score2.isEmpty())
@@ -163,7 +158,6 @@ public class GraphGenerator {
         AnchorPane.setRightAnchor(grid, 0.0);
         AnchorPane.setTopAnchor(grid, 0.0);
         AnchorPane.setBottomAnchor(grid, 0.0);
-        // root.setStyle("-fx-background-color: yellow");
         Scene scene = new Scene(root, 1600, 900);
 
         scene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
@@ -193,6 +187,7 @@ public class GraphGenerator {
             grid.add(instructionBox, bracket.roundNum-1, numRows - 1, 3, 1);
         }
 
+        // set up the teambox and vsButton
         for (int i = 1; i <= teamsInSeries; i++) {
 
             if (seriesNumber != 1) {
@@ -209,6 +204,7 @@ public class GraphGenerator {
                                 (int) ((Math.pow(2, (seriesNumber - 1)) - 1)
                                                 + (i - 1) * Math.pow(2, seriesNumber)));
             }
+            // set up the teambox
             grid.add(bracket.leftChallengerLists[seriesNumber][i].teamBox, seriesNumber - 1,
                             (int) ((Math.pow(2, (seriesNumber - 1)) - 1)
                                             + (i - 1) * Math.pow(2, seriesNumber)));
@@ -224,6 +220,7 @@ public class GraphGenerator {
     private static void setupRightSeries(Stage primaryStage, int teamsInSeries, int seriesNumber) {
 
 
+        // set up the teambox and vsButton
         for (int i = 1; i <= teamsInSeries; i++) {
 
             if (seriesNumber != 1) {
@@ -238,6 +235,7 @@ public class GraphGenerator {
                                 (int) ((Math.pow(2, (seriesNumber - 1)) - 1)
                                                 + (i - 1) * Math.pow(2, seriesNumber)));
             }
+            // set up the teambox
             grid.add(bracket.rightChallengerLists[seriesNumber][i].teamBox,
                             bracket.roundNum * 2 + 2 - seriesNumber-1,
                             (int) ((Math.pow(2, (seriesNumber - 1)) - 1)
