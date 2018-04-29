@@ -16,6 +16,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -80,9 +81,11 @@ public class GraphGenerator {
 
 
         // set final game button
-        HBox finalButtonBox = new HBox(10);
+        HBox finalButtonBox = new HBox();
         Button finalButton = new Button("Final");
-
+        finalButton.setMinWidth(60);
+        finalButton.setId("finalButton");
+        finalButton.setShape(new Circle(1.5));
         // set action
         finalButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -107,6 +110,7 @@ public class GraphGenerator {
                     if (scoreNum1 > scoreNum2) {
                         // name1 is the first place
                         // name2 is the second place
+                        AlertBox.displayPlacement(name1, name2, thirdPalce);
                         if (thirdPalce != null) {
                             // thirdPalce is the third place 
                         }
@@ -114,6 +118,7 @@ public class GraphGenerator {
                     } else {
                         // name2 is first place
                         // name1 is second place
+                        AlertBox.displayPlacement(name2, name1, thirdPalce);
                         if (thirdPalce != null) {
                             // thirdPalce is the third place 
                         }
@@ -141,7 +146,7 @@ public class GraphGenerator {
 
         // show in the stage
         root.getChildren().add(grid);
-        // grid.setGridLinesVisible(true);
+         grid.setGridLinesVisible(true);
         AnchorPane.setLeftAnchor(grid, 0.0);
         AnchorPane.setRightAnchor(grid, 0.0);
         AnchorPane.setTopAnchor(grid, 0.0);
@@ -169,8 +174,11 @@ public class GraphGenerator {
                 grid.getRowConstraints().add(rc);
             }
             // set up the instruction
+            HBox instructionBox = new HBox();
             Label labelInstruction = new Label("Enter the scores and click the button!");
-            grid.add(labelInstruction, bracket.roundNum, numRows - 1);
+            instructionBox.getChildren().add(labelInstruction);
+            instructionBox.setAlignment(Pos.CENTER);
+            grid.add(instructionBox, bracket.roundNum-1, numRows - 1, 3, 1);
         }
 
         for (int i = 1; i <= teamsInSeries; i++) {
@@ -214,12 +222,12 @@ public class GraphGenerator {
             if (numOfTeam / 2 != teamsInSeries) {
                 VSButton vsButton = new VSButton(bracket, bracket.rightChallengerLists,
                                 seriesNumber, i, 1);
-                grid.add(vsButton.buttonBox, bracket.roundNum * 2 + 2 - seriesNumber + 1,
+                grid.add(vsButton.buttonBox, bracket.roundNum * 2 + 2 - seriesNumber + 1 -1,
                                 (int) ((Math.pow(2, (seriesNumber - 1)) - 1)
                                                 + (i - 1) * Math.pow(2, seriesNumber)));
             }
             grid.add(bracket.rightChallengerLists[seriesNumber][i].teamBox,
-                            bracket.roundNum * 2 + 2 - seriesNumber,
+                            bracket.roundNum * 2 + 2 - seriesNumber-1,
                             (int) ((Math.pow(2, (seriesNumber - 1)) - 1)
                                             + (i - 1) * Math.pow(2, seriesNumber)));
 
