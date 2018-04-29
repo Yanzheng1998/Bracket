@@ -35,7 +35,7 @@ public class Bracket {
         int[] order = reorder(teams.length);
         String[] reordered = new String[teams.length];
         for (int i = 0; i <= teams.length - 1; i++) {
-            reordered[order[i]] = teams[i];
+            reordered[i] = teams[order[i]];
         }
         return reordered;
     }
