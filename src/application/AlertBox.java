@@ -1,7 +1,6 @@
 package application;
 
-
-
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -43,6 +42,7 @@ public class AlertBox {
 		
 		// design layout
 		VBox vBox = new VBox();
+		vBox.setSpacing(10);
 		vBox.getChildren().addAll(winnerLabel, closeButton);
 		vBox.setAlignment(Pos.CENTER);
 		
