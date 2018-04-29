@@ -47,7 +47,7 @@ public class VSButton {
 		buttonBox = new HBox();
 		
 		// set action
-		vsButton.setOnAction(new EventHandler<ActionEvent>() 
+		vsButton.setOnAction(new EventHandler<ActionEvent>() {
 			/**
 			 * action method of button's inner class - contains the action need to complete when 
 			 * user click on general VS buttons.
