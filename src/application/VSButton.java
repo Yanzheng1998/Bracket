@@ -19,8 +19,8 @@ import javafx.scene.layout.HBox;
 * @param region could be 0 - left half or 1 - right
 */
 public class VSButton {
-	public Button vsButton;
-	public HBox buttonBox;
+	public Button vsButton; // button node
+	public HBox buttonBox; // Hbox node contains button
 
 	public VSButton(Bracket bracket, Team[][] teams, int seriesNumber, int teamNum, int region) {
 		vsButton = new Button("VS");
