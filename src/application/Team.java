@@ -28,7 +28,7 @@ public class Team {
         teamBox.setMaxHeight(0);
 
 
-
+        // set the score text field invisible by default
         score.setVisible(false);
         score.setPrefWidth(80);
 
