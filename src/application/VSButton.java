@@ -13,6 +13,7 @@ public class VSButton {
 
     public VSButton(Bracket bracket, Team[][] teams, int seriesNumber, int teamNum, int region) {
         vsButton = new Button("VS");
+        vsButton.setMinWidth(60);
         buttonBox = new HBox();
         // set action
         vsButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -28,23 +29,21 @@ public class VSButton {
                     if(scoreNum1 < 0 || scoreNum2 < 2)
                         throw new ArithmeticException();
                     
-                    if (score1 != null && score2 != null) {
-                        if (scoreNum1 > scoreNum2) {
-                            teams[seriesNumber][teamNum].name.setText(name1);
-                            teams[seriesNumber][teamNum].score.setVisible(true);
-                            // is this button is the semi-final game button
-                            if(seriesNumber==bracket.roundNum) {
-                                bracket.thirdPlaceName[region] = name2;
-                                bracket.thirdPlaceScore[region] = scoreNum2;
-                            }
-                        } else {
-                            teams[seriesNumber][teamNum].name.setText(name2);
-                            teams[seriesNumber][teamNum].score.setVisible(true);
-                            // is this button is the semi-final game button
-                            if(seriesNumber==bracket.roundNum) {
-                                bracket.thirdPlaceName[region] = name1;
-                                bracket.thirdPlaceScore[region] = scoreNum1;
-                            }
+                    if (scoreNum1 > scoreNum2) {
+                        teams[seriesNumber][teamNum].name.setText(name1);
+                        teams[seriesNumber][teamNum].score.setVisible(true);
+                        // is this button is the semi-final game button
+                        if(seriesNumber==bracket.roundNum) {
+                            bracket.thirdPlaceName[region] = name2;
+                            bracket.thirdPlaceScore[region] = scoreNum2;
+                        }
+                    } else {
+                        teams[seriesNumber][teamNum].name.setText(name2);
+                        teams[seriesNumber][teamNum].score.setVisible(true);
+                        // is this button is the semi-final game button
+                        if(seriesNumber==bracket.roundNum) {
+                            bracket.thirdPlaceName[region] = name1;
+                            bracket.thirdPlaceScore[region] = scoreNum1;
                         }
                     }
                 } catch (NumberFormatException r) {
@@ -53,7 +52,7 @@ public class VSButton {
                     else
                         AlertBox.display("WARNING", "Please enter integers as team score");
                 } catch (ArithmeticException r) {
-                    AlertBox.display("WARNING", "Please enter positive integer as team score");
+                    AlertBox.display("WARNING", "Please enter positive integers as team score");
                 }
             }
         });
