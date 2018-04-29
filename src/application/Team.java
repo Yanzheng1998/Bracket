@@ -31,7 +31,6 @@ public class Team {
 
         score.setVisible(false);
         score.setPrefWidth(80);
-        score.setPromptText("Enter score here");
 
 
         name.setAlignment(Pos.CENTER_LEFT);
