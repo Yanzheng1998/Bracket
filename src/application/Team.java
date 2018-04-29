@@ -28,10 +28,9 @@ public class Team {
         teamBox.setMaxHeight(0);
 
 
-
+        // set the score text field invisible by default
         score.setVisible(false);
         score.setPrefWidth(80);
-        score.setPromptText("Enter score here");
 
 
         name.setAlignment(Pos.CENTER_LEFT);

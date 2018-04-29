@@ -65,6 +65,7 @@ public class GraphGenerator {
         numOfTeam = teamsName.length;
 
         grid.setAlignment(Pos.CENTER);
+        grid.setGridLinesVisible(true);
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
@@ -82,6 +83,7 @@ public class GraphGenerator {
 
         // set final game button
         HBox finalButtonBox = new HBox();
+        finalButtonBox.setPrefWidth(150);
         Button finalButton = new Button("Final");
         finalButton.setMinWidth(60);
         finalButton.setId("finalButton");
@@ -94,10 +96,13 @@ public class GraphGenerator {
                 String name2 = bracket.rightChallengerLists[bracket.roundNum][1].name.getText();
                 String score1 = bracket.leftChallengerLists[bracket.roundNum][1].score.getText();
                 String score2 = bracket.rightChallengerLists[bracket.roundNum][1].score.getText();
-                Integer scoreNum1 = Integer.valueOf(score1);
-                Integer scoreNum2 = Integer.valueOf(score2);
-                if (score1 != null && score2 != null) {
-
+                
+                try {
+                    Integer scoreNum1 = Integer.valueOf(score1);
+                    Integer scoreNum2 = Integer.valueOf(score2);
+                    if(scoreNum1 < 0 || scoreNum2 < 2)
+                        throw new ArithmeticException();
+                    
                     // if we have third place
                     String thirdPalce = new String();
                     if (bracket.thirdPlaceName[0] != null) {
@@ -124,6 +129,13 @@ public class GraphGenerator {
                         }
                         // alert box
                     }
+                } catch (NumberFormatException r) {
+                    if (score1.isEmpty() || score2.isEmpty())
+                        AlertBox.display("WARNING", "Score entered is empty");
+                    else
+                        AlertBox.display("WARNING", "Please enter integers as team score");
+                } catch (ArithmeticException r) {
+                    AlertBox.display("WARNING", "Please enter positive integers as team score");
                 }
             }
         });
@@ -239,5 +251,5 @@ public class GraphGenerator {
     }
 
 
-
 }
+
