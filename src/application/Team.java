@@ -1,3 +1,8 @@
+/**
+ * Team class contains info of one team and the box that contain the info which will be
+ * displayed in the UI.
+ */
+
 package application;
 
 import javafx.geometry.Pos;
@@ -9,10 +14,14 @@ import javafx.scene.layout.StackPane;
 
 public class Team {
     
-    public Label name;
-    public TextField score;
-    public HBox teamBox;
-
+    public Label name; // name of team
+    public TextField score; // input score of team
+    public HBox teamBox; // the box that contains the team
+    
+    /**
+     * Constructor of Team
+     * Set the style of team box
+     */
     public Team() {
         StackPane scoreStack = new StackPane();
         StackPane nameStack = new StackPane();
@@ -28,9 +37,11 @@ public class Team {
         teamBox.setMaxHeight(0);
 
 
-        // set the score text field invisible by default
+
         score.setVisible(false);
         score.setPrefWidth(80);
+        
+        name.setMinWidth(40);
 
 
         name.setAlignment(Pos.CENTER_LEFT);
