@@ -81,7 +81,7 @@ public class GraphGenerator {
         
         // set the properties of the grid pane
         grid.setAlignment(Pos.CENTER);
-        grid.setGridLinesVisible(true);
+        grid.setGridLinesVisible(false);
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
