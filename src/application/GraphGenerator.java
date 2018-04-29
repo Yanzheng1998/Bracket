@@ -107,6 +107,7 @@ public class GraphGenerator {
                     if (scoreNum1 > scoreNum2) {
                         // name1 is the first place
                         // name2 is the second place
+                        AlertBox.displayPlacement(name1, name2, thirdPalce);
                         if (thirdPalce != null) {
                             // thirdPalce is the third place 
                         }
@@ -114,6 +115,7 @@ public class GraphGenerator {
                     } else {
                         // name2 is first place
                         // name1 is second place
+                        AlertBox.displayPlacement(name2, name1, thirdPalce);
                         if (thirdPalce != null) {
                             // thirdPalce is the third place 
                         }
