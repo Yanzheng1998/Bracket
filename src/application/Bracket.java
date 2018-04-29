@@ -9,6 +9,10 @@ public class Bracket {
     public Integer[] thirdPlaceScore = new Integer[2];
     public int roundNum;
 
+    /**
+    * set up the bracket
+    * @param teamsName - all names of the teams in the file
+    */
     public Bracket(String[] teamsName) {
         int numOfTeam = teamsName.length;
         int teamInSeries = numOfTeam;
@@ -30,7 +34,7 @@ public class Bracket {
         }
     }
     
-    
+    // teams are seeded by the challenger's rank order
     private String[] reorder (String[] teams) {
         int[] order = reorder(teams.length);
         String[] reordered = new String[teams.length];
