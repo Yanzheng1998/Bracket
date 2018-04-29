@@ -13,7 +13,9 @@ public class VSButton {
 
 	public VSButton(Bracket bracket, Team[][] teams, int seriesNumber, int teamNum, int region) {
 		vsButton = new Button("VS");
+		vsButton.setMinWidth(60);
 		buttonBox = new HBox();
+		
 		// set action
 		vsButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
