@@ -133,8 +133,10 @@ public class GraphGenerator {
                 try {
                     Integer scoreNum1 = Integer.valueOf(score1);
                     Integer scoreNum2 = Integer.valueOf(score2);
-                    if(scoreNum1 < 0 || scoreNum2 < 2)
+                    if(scoreNum1 < 0 || scoreNum2 < 0)
                         throw new ArithmeticException();
+                    if(scoreNum1 == scoreNum2)
+                        throw new NullPointerException();
                     
                     // if we have third place
                     String thirdPalce = new String();
@@ -163,6 +165,8 @@ public class GraphGenerator {
                         AlertBox.display("WARNING", "Please enter integers as team score");
                 } catch (ArithmeticException r) {
                     AlertBox.display("WARNING", "Please enter positive integers as team score");
+                } catch (NullPointerException r) {
+                    AlertBox.display("Result Unclear", "The two teams competing have same scores, thus no team is winning");
                 }
             }
         });
