@@ -216,7 +216,9 @@ public class GraphGenerator {
             }
             // set up the instruction
             HBox instructionBox = new HBox();
-            Label labelInstruction = new Label("Enter the scores and click the button!");
+            Label labelInstruction = new Label("Enter the scores in the exist input field and click the VS button to compete two adjacent teams!");
+            labelInstruction.setWrapText(true);
+            labelInstruction.setMinHeight(80);
             instructionBox.getChildren().add(labelInstruction);
             instructionBox.setAlignment(Pos.CENTER);
             grid.add(instructionBox, bracket.roundNum-1, numRows - 1, 3, 1);
