@@ -61,6 +61,7 @@ public class GraphGenerator {
         sPane.getChildren().add(label);
         StackPane.setAlignment(label, Pos.CENTER);
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
@@ -81,6 +82,7 @@ public class GraphGenerator {
         sPane.getChildren().add(label);
         StackPane.setAlignment(label, Pos.CENTER);
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
@@ -208,6 +210,7 @@ public class GraphGenerator {
         scene.getStylesheets().add(Main.class.getResource("style.css").toExternalForm());
 
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
