@@ -125,10 +125,20 @@ public class GraphGenerator {
         finalButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
+                if (!bracket.leftChallengerLists[bracket.roundNum][1].score.isVisible() || !bracket.rightChallengerLists[bracket.roundNum][1].score.isVisible())
+                    return;
+                
                 String name1 = bracket.leftChallengerLists[bracket.roundNum][1].name.getText();
                 String name2 = bracket.rightChallengerLists[bracket.roundNum][1].name.getText();
                 String score1 = bracket.leftChallengerLists[bracket.roundNum][1].score.getText();
                 String score2 = bracket.rightChallengerLists[bracket.roundNum][1].score.getText();
+                
+                bracket.leftChallengerLists[bracket.roundNum][1].score.setVisible(false);
+                bracket.leftChallengerLists[bracket.roundNum][1].score.setMaxWidth(10);
+                bracket.rightChallengerLists[bracket.roundNum][1].score.setVisible(false);
+                bracket.rightChallengerLists[bracket.roundNum][1].score.setMaxWidth(10);
+                bracket.leftChallengerLists[bracket.roundNum][1].name.setText(name1 + " score: " + score1);
+                bracket.rightChallengerLists[bracket.roundNum][1].name.setText(name2 + " score: " + score2);
                 
                 try {
                     Integer scoreNum1 = Integer.valueOf(score1);
