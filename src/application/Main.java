@@ -21,8 +21,10 @@ package application;
 
 
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 
 import javafx.application.Application;
@@ -38,32 +40,30 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
             if (numOfTeam == 0) {
-
                 GraphGenerator.setupNoTeam(primaryStage);
-
+            } else if (numOfTeam == -1) {
+            	AlertBox.display("No Such File", "Please choose a valid file!");
             } else if (numOfTeam == 1) {
-
                 GraphGenerator.setupOneTeam(primaryStage, teamsName[0]);
-
             } else {
-
                 GraphGenerator.setupMultipleTeams(primaryStage, teamsName, bracket);
-
             }
-
     }
 
     public static void main(String[] args) {
-    
     	try {
-            teamsName = Files.lines(Paths.get("/Users/yanzheng/eclipse-workspace/Bracket/src/teams"))
+    	    File file = new File(args[0]);
+    	    String path = file.getAbsolutePath();
+            teamsName = Files.lines(Paths.get(path))
                             .map(String::trim)
                             .filter(x->x!=null && !x.equals(""))
                             .toArray(String[]::new);
+     
             numOfTeam = teamsName.length;
             bracket = new Bracket(teamsName);
+    	} catch (NoSuchFileException e) {
+    		numOfTeam = -1;
         } catch (IOException e) {
             e.printStackTrace();
         }

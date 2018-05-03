@@ -34,14 +34,18 @@ public class Bracket {
     public Bracket(String[] teamsName) {
         int numOfTeam = teamsName.length;
         int teamInSeries = numOfTeam;
-        teamsName = reorder(teamsName);
-        roundNum = 0;
-        while(teamInSeries!=1) {
-            teamInSeries/=2;
-            roundNum++;
+        //when there are teams, we use reorder to order teams
+        if(teamsName.length != 0) {
+        	teamsName = reorder(teamsName);
+        	roundNum = 0;
+        	while(teamInSeries!=1) {
+        		teamInSeries/=2;
+        		roundNum++;
+        	}
         }
         leftChallengerLists = new Team[roundNum+1][numOfTeam/2+1];
         rightChallengerLists = new Team[roundNum+1][numOfTeam/2+1];
+   
         for(int i=0; i<numOfTeam/2; i++) {
             leftChallengerLists[1][i+1] = new Team();
             leftChallengerLists[1][i+1].name.setText(teamsName[i]);
@@ -54,7 +58,8 @@ public class Bracket {
     
     // teams are seeded by the challenger's rank order
     private String[] reorder (String[] teams) {
-        int[] order = reorder(teams.length);
+        
+    	int[] order = reorder(teams.length);
         String[] reordered = new String[teams.length];
         for (int i = 0; i <= teams.length - 1; i++) {
             reordered[i] = teams[order[i]];
@@ -66,8 +71,13 @@ public class Bracket {
         int[] array = new int[teamNum];
         int[] prev;
         int i;
+               
+        if (teamNum == 1) {
+        	array[0] = 0;
+        	return array;
+        }
         
-        if (teamNum <= 2)
+        if (teamNum == 2)
         {
             array[0] = 0;
             array[1] = 1;
