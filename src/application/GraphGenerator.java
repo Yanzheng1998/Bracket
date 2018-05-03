@@ -151,12 +151,12 @@ public class GraphGenerator {
                         // name1 is the first place
                         // name2 is the second place
                         // alert box
-                        AlertBox.displayPlacement(name1, name2, thirdPalce);
+                        AlertBox.displayPlacement(name1, name2, thirdPalce, primaryStage);
                     } else {
                         // name2 is first place
                         // name1 is second place
                         // alert box
-                        AlertBox.displayPlacement(name2, name1, thirdPalce);
+                        AlertBox.displayPlacement(name2, name1, thirdPalce, primaryStage);
                     }
                 } catch (NumberFormatException r) {
                     if (score1.isEmpty() || score2.isEmpty())
