@@ -134,9 +134,9 @@ public class GraphGenerator {
                 String score2 = bracket.rightChallengerLists[bracket.roundNum][1].score.getText();
                 
                 bracket.leftChallengerLists[bracket.roundNum][1].score.setVisible(false);
-                bracket.leftChallengerLists[bracket.roundNum][1].score.setMaxWidth(10);
+                bracket.leftChallengerLists[bracket.roundNum][1].score.setMaxWidth(0);
                 bracket.rightChallengerLists[bracket.roundNum][1].score.setVisible(false);
-                bracket.rightChallengerLists[bracket.roundNum][1].score.setMaxWidth(10);
+                bracket.rightChallengerLists[bracket.roundNum][1].score.setMaxWidth(0);
                 bracket.leftChallengerLists[bracket.roundNum][1].name.setText(name1 + " score: " + score1);
                 bracket.rightChallengerLists[bracket.roundNum][1].name.setText(name2 + " score: " + score2);
                 
