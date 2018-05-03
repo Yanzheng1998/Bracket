@@ -73,11 +73,11 @@ public class VSButton {
                         			throw new NullPointerException();
 					
 					teams[seriesNumber - 1][teamNum * 2].score.setVisible(false);
-					teams[seriesNumber - 1][teamNum * 2].score.setMaxWidth(10);
+					teams[seriesNumber - 1][teamNum * 2].score.setMaxWidth(0);
 					teams[seriesNumber - 1][teamNum * 2 - 1].score.setVisible(false);
-					teams[seriesNumber - 1][teamNum * 2 - 1].score.setMaxWidth(10);
-					teams[seriesNumber - 1][teamNum * 2].name.setText(name1 + " score: " + score1);
-					teams[seriesNumber - 1][teamNum * 2 - 1].name.setText(name2 + " score: " + score2);
+					teams[seriesNumber - 1][teamNum * 2 - 1].score.setMaxWidth(0);
+					teams[seriesNumber - 1][teamNum * 2].name.setText(name2 + " score: " + score2);
+                    			teams[seriesNumber - 1][teamNum * 2 - 1].name.setText(name1 + " score: " + score1);
 					
 					if (scoreNum1 > scoreNum2) {
 						teams[seriesNumber][teamNum].name.setText(name1);
