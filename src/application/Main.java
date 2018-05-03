@@ -58,7 +58,7 @@ public class Main extends Application {
     public static void main(String[] args) {
     
     	try {
-            teamsName = Files.lines(Paths.get(args[0]))
+            teamsName = Files.lines(Paths.get("/Users/yanzheng/eclipse-workspace/Bracket/src/teams"))
                             .map(String::trim)
                             .filter(x->x!=null && !x.equals(""))
                             .toArray(String[]::new);

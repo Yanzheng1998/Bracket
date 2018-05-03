@@ -133,10 +133,8 @@ public class GraphGenerator {
                 try {
                     Integer scoreNum1 = Integer.valueOf(score1);
                     Integer scoreNum2 = Integer.valueOf(score2);
-                    if(scoreNum1 < 0 || scoreNum2 < 0)
+                    if(scoreNum1 < 0 || scoreNum2 < 2)
                         throw new ArithmeticException();
-                    if(scoreNum1 == scoreNum2)
-                        throw new NullPointerException();
                     
                     // if we have third place
                     String thirdPalce = new String();
@@ -151,12 +149,12 @@ public class GraphGenerator {
                         // name1 is the first place
                         // name2 is the second place
                         // alert box
-                        AlertBox.displayPlacement(name1, name2, thirdPalce, primaryStage);
+                        AlertBox.displayPlacement(name1, name2, thirdPalce);
                     } else {
                         // name2 is first place
                         // name1 is second place
                         // alert box
-                        AlertBox.displayPlacement(name2, name1, thirdPalce, primaryStage);
+                        AlertBox.displayPlacement(name2, name1, thirdPalce);
                     }
                 } catch (NumberFormatException r) {
                     if (score1.isEmpty() || score2.isEmpty())
@@ -165,8 +163,6 @@ public class GraphGenerator {
                         AlertBox.display("WARNING", "Please enter integers as team score");
                 } catch (ArithmeticException r) {
                     AlertBox.display("WARNING", "Please enter positive integers as team score");
-                } catch (NullPointerException r) {
-                    AlertBox.display("Result Unclear", "The two teams competing have same scores, thus no team is winning");
                 }
             }
         });
@@ -216,9 +212,7 @@ public class GraphGenerator {
             }
             // set up the instruction
             HBox instructionBox = new HBox();
-            Label labelInstruction = new Label("Enter the scores in the exist input field and click the VS button to compete two adjacent teams!");
-            labelInstruction.setWrapText(true);
-            labelInstruction.setMinHeight(80);
+            Label labelInstruction = new Label("Enter the scores and click the button!");
             instructionBox.getChildren().add(labelInstruction);
             instructionBox.setAlignment(Pos.CENTER);
             grid.add(instructionBox, bracket.roundNum-1, numRows - 1, 3, 1);
