@@ -174,7 +174,7 @@ public class GraphGenerator {
                     else
                         AlertBox.display("WARNING", "Please enter integers as team score");
                 } catch (ArithmeticException r) {
-                    AlertBox.display("WARNING", "Please enter positive integers as team score");
+                    AlertBox.display("WARNING", "Please enter non-negative integers as team score");
                 } catch (NullPointerException r) {
                     AlertBox.display("Result Unclear", "The two teams competing have same scores, thus no team is winning");
                 }
