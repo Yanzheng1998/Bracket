@@ -57,6 +57,9 @@ public class VSButton {
 			 */
 			@Override
 			public void handle(ActionEvent e) {
+				if (!teams[seriesNumber - 1][teamNum * 2].score.isVisible() || !teams[seriesNumber - 1][teamNum * 2].score.isVisible())
+                    			return;
+				
 				String name1 = teams[seriesNumber - 1][teamNum * 2 - 1].name.getText();
 				String name2 = teams[seriesNumber - 1][teamNum * 2].name.getText();
 				String score1 = teams[seriesNumber - 1][teamNum * 2 - 1].score.getText();
@@ -68,6 +71,13 @@ public class VSButton {
                         			throw new ArithmeticException();
                     			if(scoreNum1 == scoreNum2)
                         			throw new NullPointerException();
+					
+					teams[seriesNumber - 1][teamNum * 2].score.setVisible(false);
+					teams[seriesNumber - 1][teamNum * 2].score.setMaxWidth(10);
+					teams[seriesNumber - 1][teamNum * 2 - 1].score.setVisible(false);
+					teams[seriesNumber - 1][teamNum * 2 - 1].score.setMaxWidth(10);
+					teams[seriesNumber - 1][teamNum * 2].name.setText(name1 + " score: " + score1);
+					teams[seriesNumber - 1][teamNum * 2 - 1].name.setText(name2 + " score: " + score2);
 					
 					if (scoreNum1 > scoreNum2) {
 						teams[seriesNumber][teamNum].name.setText(name1);
