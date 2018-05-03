@@ -219,6 +219,7 @@ public class GraphGenerator {
             Label labelInstruction = new Label("Enter the scores in the exist input field and click the VS button to compete two adjacent teams!");
             labelInstruction.setWrapText(true);
             labelInstruction.setMinHeight(80);
+            labelInstruction.setMaxWidth(400);
             instructionBox.getChildren().add(labelInstruction);
             instructionBox.setAlignment(Pos.CENTER);
             grid.add(instructionBox, bracket.roundNum-1, numRows - 1, 3, 1);
